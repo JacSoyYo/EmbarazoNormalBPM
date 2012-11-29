@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:ns0="http://xmlns.sacyl.es/bpmn/pca/embarazo"
+            targetNamespace="http://xmlns.sacyl.es/bpmn/pca/embarazo"
+            elementFormDefault="qualified"
+            xmlns:ns1="http://xmlns.sacyl.es/bpmn/general">
+    <xsd:import schemaLocation="general.xsd"
+                namespace="http://xmlns.sacyl.es/bpmn/general"/>
+    <xsd:element name="CartillaSaludEmbarazada"
+                 type="ns0:CartillaSaludEmbarazadaType">
+        <xsd:annotation>
+            <xsd:documentation>Cartilla de Salud de la Embarazada</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="CartillaSaludEmbarazadaType">
+        <xsd:sequence>
+            <xsd:element name="datosDemograficos" nillable="true"
+                         type="ns0:DatosDemograficosType"/>
+            <xsd:element name="personalSanitario" nillable="true"
+                         type="ns0:PersonalSanitarioType"/>
+            <xsd:element name="datosLaborales" nillable="true"
+                         type="ns0:DatosLaboralesType"/>
+            <xsd:element name="antecedentes" nillable="true"
+                         type="ns0:AntecedentesType"/>
+            <xsd:element name="ginecologicos" nillable="true"
+                         type="ns0:GinecologicosType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xs:complexType name="DatosDemograficosType">
+        <xs:sequence>
+            <xs:element name="cip" nillable="true" type="xs:string"/>
+            <xs:element name="nombre" nillable="true" type="xs:string"/>
+            <xs:element name="apellido1" nillable="true" type="xs:string"/>
+            <xs:element name="apellido2" nillable="true" type="xs:string"/>
+            <xs:element name="dni" nillable="true" type="xs:string"/>
+            <xs:element name="fechaNacimiento" nillable="true" type="xs:date"/>
+            <xs:element name="domicilio" nillable="true" type="xs:string"/>
+            <xs:element name="localidad" nillable="true" type="xs:string"/>
+            <xs:element name="codigoPostal" nillable="true" type="xs:string"/>
+            <xs:element name="provincia" nillable="true" type="xs:string"/>
+            <xs:element name="telefono" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PersonalSanitarioType">
+        <xs:sequence>
+            <xs:element name="centro" nillable="true" type="xs:string"/>
+            <xs:element name="ciasMedico" nillable="true" type="xs:string"/>
+            <xs:element name="matrona" nillable="true" type="xs:string"/>
+            <xs:element name="tocologo" nillable="true" type="xs:string"/>
+            <xs:element name="hospital" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DatosLaboralesType">
+        <xs:sequence>
+            <xs:element name="profesion" nillable="true" type="xs:string"/>
+            <xs:element name="puestoTrabajo" nillable="true" type="xs:string"/>
+            <xs:element name="riesgosLaborales" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AntecedentesType">
+        <xs:sequence>
+            <xs:element name="familiares" nillable="true" type="xs:string"/>
+            <xs:element name="personales" nillable="true" type="ns0:AntecentesPersonalesType"/>
+            <xs:element name="inmunizaciones" nillable="true" type="ns0:AntecedentesInmunizacionesType"/>
+            <xs:element name="alergias" nillable="true" type="ns0:AntecedentesAlergiasType"/>
+            <xs:element name="habitos" nillable="true" type="ns0:AntecedentesHabitosType"/>
+            <xs:element name="medicamentos" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <xs:documentable>
+                            <xs:description>
+                                MEDICAMENTOS QUE TOMA HABITUALMENTE
+                            </xs:description>
+                        </xs:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AntecentesPersonalesType">
+        <xs:sequence>
+            <xs:element name="hta" nillable="true" type="xs:boolean"/>
+            <xs:element name="diabetes" nillable="true" type="xs:boolean"/>
+            <xs:element name="alteracionesTiroideas" nillable="true" type="xs:string"/>
+            <xs:element name="otras" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AntecedentesInmunizacionesType">
+        <xs:sequence>
+            <xs:element name="rubeola" nillable="true" type="xs:boolean"/>
+            <xs:element name="tetanos" nillable="true" type="xs:boolean"/>
+            <xs:element name="hepatitisB" nillable="true" type="xs:string"/>
+            <xs:element name="varicela" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AntecedentesAlergiasType">
+        <xs:sequence>
+            <xs:element name="medicamentos" nillable="true" type="xs:string"/>
+            <xs:element name="otras" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AntecedentesHabitosType">
+        <xs:sequence>
+            <xs:element name="tabaco" nillable="true" type="xs:boolean"/>
+            <xs:element name="alcohol" nillable="true" type="xs:boolean"/>
+            <xs:element name="otrasSustancias" nillable="true" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GinecologicosType">
+        <xs:sequence>
+            <xs:element name="menarquia" nillable="true" type="xs:string"/>
+            <xs:element name="tipoMenstrual" nillable="true" type="xs:string"/>
+            <xs:element name="anticoncepcionPrevia" nillable="true" type="xs:boolean"/>
+            <xs:element name="metodoAnticoncepcion" nillable="true" type="xs:string"/>
+            <xs:element name="patologiaGinecologicaPrevia" nillable="true" type="xs:string"/>
+            <xs:element name="esterilidadPrevia" nillable="true" type="xs:string"/>
+            <xs:element name="obstetricos" nillable="true" type="ns0:ObstetricosType" maxOccurs="unbounded"/>
+            <xs:element name="observaciones" nillable="true" type="xs:string"/>
+            <xs:element name="fechaUltimaRegla" nillable="true" type="xs:date"/>
+            <xs:element name="fechaProbableParto" nillable="true" type="xs:date"/>
+            <xs:element name="formulaMenstrual" nillable="true" type="xs:string"/>
+            <xs:element name="correccionFechaProbableParto" nillable="true" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ObstetricosType">
+        <xs:sequence>
+            <xs:element name="anno" nillable="true" type="xs:string"/>
+            <xs:element name="evolucionEmbarazo" nillable="true" type="xs:string"/>
+            <xs:element name="tipoPartoAborto" nillable="true" type="xs:string"/>
+            <xs:element name="sexo" nillable="true" type="xs:string"/>
+            <xs:element name="peso" nillable="true" type="xs:int"/>
+            <xs:element name="puerperio" nillable="true" type="xs:string"/>
+            <xs:element name="lactanciaMaternal" nillable="true" type="xs:boolean"/>
+            <xs:element name="duracionLactanciaMaterna" nillable="true" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+</xsd:schema>

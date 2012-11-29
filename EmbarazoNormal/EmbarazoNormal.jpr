@@ -70,6 +70,7 @@
       <list n="technologyScope">
          <string v="SOA"/>
          <string v="BPM"/>
+         <string v="XML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -355,6 +356,16 @@
       <hash n="sca-content">
          <list n="url-path">
             <url path="."/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.toplink.workbench.addin">
+      <hash n="toplinkContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="toplink/"/>
          </list>
       </hash>
    </hash>
