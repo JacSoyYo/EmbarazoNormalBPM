@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+    
+     targetNamespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+     xmlns:tns1="http://gestorConsultaCiudadano.ejb.common.civitas/types"
+     xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+     xmlns:tns2="http://obj.gestorConsultaCiudadano.ejb.civitas"
+     xmlns:impl="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+     xmlns:apachesoap="http://xml.apache.org/xml-soap"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:intf="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+    >
+    <wsdl:types>
+        <schema targetNamespace="http://gestorConsultaCiudadano.ejb.common.civitas/types" xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://obj.gestorConsultaCiudadano.ejb.civitas"/>
+            <import namespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"/>
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+            <complexType name="consultaCiudadano">
+                <sequence>
+                    <element name="apelUsuario1" nillable="true" type="soapenc:string"/>
+                    <element name="apelUsuario2" nillable="true" type="soapenc:string"/>
+                    <element name="ccaaNacimiento" nillable="true" type="soapenc:string"/>
+                    <element name="cias" nillable="true" type="soapenc:string"/>
+                    <element name="cip" nillable="true" type="soapenc:string"/>
+                    <element name="codGerencia" nillable="true" type="soapenc:string"/>
+                    <element name="codLocalidad" nillable="true" type="soapenc:string"/>
+                    <element name="codPensionista" nillable="true" type="soapenc:string"/>
+                    <element name="codResultado" nillable="true" type="soapenc:string"/>
+                    <element name="codTitular" nillable="true" type="soapenc:string"/>
+                    <element name="codigoPostal" nillable="true" type="soapenc:string"/>
+                    <element name="criterio" nillable="true" type="soapenc:string"/>
+                    <element name="direccion" nillable="true" type="soapenc:string"/>
+                    <element name="dniUsuario" nillable="true" type="soapenc:string"/>
+                    <element name="fecNacimiento" nillable="true" type="soapenc:string"/>
+                    <element name="nomUsuario" nillable="true" type="soapenc:string"/>
+                    <element name="numAfiliacion2" nillable="true" type="soapenc:string"/>
+                    <element name="numDireccion" nillable="true" type="soapenc:string"/>
+                    <element name="otraDireccion" nillable="true" type="soapenc:string"/>
+                    <element name="paisNacimiento" nillable="true" type="soapenc:string"/>
+                    <element name="pasaporte" nillable="true" type="soapenc:string"/>
+                    <element name="sexo" nillable="true" type="soapenc:string"/>
+                    <element name="telefono" nillable="true" type="soapenc:string"/>
+                    <element name="tipoVia" nillable="true" type="soapenc:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="DevConsultaCiudadano">
+                <sequence>
+                    <element name="codResultado" nillable="true" type="soapenc:string"/>
+                    <element name="criterio" nillable="true" type="soapenc:string"/>
+                    <element name="resultado" nillable="true" type="impl:ArrayOf_tns1_consultaCiudadano"/>
+                </sequence>
+            </complexType>
+        </schema>
+        <schema targetNamespace="http://obj.gestorConsultaCiudadano.ejb.civitas" xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://gestorConsultaCiudadano.ejb.common.civitas/types"/>
+            <import namespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"/>
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+            <complexType name="FatalErrorException">
+                <sequence/>
+            </complexType>
+        </schema>
+        <schema targetNamespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+             xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://gestorConsultaCiudadano.ejb.common.civitas/types"/>
+            <import namespace="http://obj.gestorConsultaCiudadano.ejb.civitas"/>
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+            <complexType name="ArrayOf_tns1_consultaCiudadano">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:consultaCiudadano[]"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="solicitudPorCipRequest">
+        <wsdl:part name="cip" type="soapenc:string"/>
+    </wsdl:message>
+    <wsdl:message name="solicitudPorCipResponse">
+        <wsdl:part name="solicitudPorCipReturn" type="tns1:consultaCiudadano"/>
+    </wsdl:message>
+    <wsdl:message name="FatalErrorException">
+        <wsdl:part name="fault" type="tns2:FatalErrorException"/>
+    </wsdl:message>
+    <wsdl:message name="solicitudPorBusquedaRequest">
+        <wsdl:part name="cc" type="tns1:consultaCiudadano"/>
+    </wsdl:message>
+    <wsdl:message name="solicitudPorBusquedaResponse">
+        <wsdl:part name="solicitudPorBusquedaReturn" type="tns1:DevConsultaCiudadano"/>
+    </wsdl:message>
+    <wsdl:portType name="GestorConsultaCiudadanoListener">
+        <wsdl:operation name="solicitudPorCip" parameterOrder="cip">
+            <wsdl:input name="solicitudPorCipRequest" message="impl:solicitudPorCipRequest"/>
+            <wsdl:output name="solicitudPorCipResponse" message="impl:solicitudPorCipResponse"/>
+            <wsdl:fault name="FatalErrorException" message="impl:FatalErrorException"/>
+        </wsdl:operation>
+        <wsdl:operation name="solicitudPorBusqueda" parameterOrder="cc">
+            <wsdl:input name="solicitudPorBusquedaRequest" message="impl:solicitudPorBusquedaRequest"/>
+            <wsdl:output name="solicitudPorBusquedaResponse" message="impl:solicitudPorBusquedaResponse"/>
+            <wsdl:fault name="FatalErrorException" message="impl:FatalErrorException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GestorConsultaCiudadanoListenerSoapBinding" type="impl:GestorConsultaCiudadanoListener">
+        <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="solicitudPorCip">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="solicitudPorCipRequest">
+                <wsdlsoap:body use="encoded" namespace="http://gestorConsultaCiudadano.webservices.jaxrpc.soap.civitas"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output name="solicitudPorCipResponse">
+                <wsdlsoap:body use="encoded" namespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+            <wsdl:fault name="FatalErrorException">
+                <wsdlsoap:fault name="FatalErrorException" namespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+                     use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="solicitudPorBusqueda">
+            <wsdlsoap:operation soapAction=""/>
+            <wsdl:input name="solicitudPorBusquedaRequest">
+                <wsdlsoap:body use="encoded" namespace="http://gestorConsultaCiudadano.webservices.jaxrpc.soap.civitas"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output name="solicitudPorBusquedaResponse">
+                <wsdlsoap:body use="encoded" namespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+                     encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+            <wsdl:fault name="FatalErrorException">
+                <wsdlsoap:fault name="FatalErrorException" namespace="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"
+                     use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="GestorConsultaCiudadanoListenerService">
+        <wsdl:port name="GestorConsultaCiudadanoListener" binding="impl:GestorConsultaCiudadanoListenerSoapBinding">
+            <wsdlsoap:address location="http://grsgscvalx0246.sacyl.es:8380/mig/services/GestorConsultaCiudadanoListener"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

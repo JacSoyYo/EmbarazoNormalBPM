@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.6.0.15.53" build="15.53" fullName="Sacyl.Embarazo.Obstetricos" modifiers="0"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/Obstetricos" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/Obstetricos"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:complexType name="ObstetricosType">
+        <xs:sequence>
+            <xs:element name="anno" nillable="true" type="xs:string"/>
+            <xs:element name="evolucionEmbarazo" nillable="true" type="xs:string"/>
+            <xs:element name="tipoPartoAborto" nillable="true" type="xs:string"/>
+            <xs:element name="sexo" nillable="true" type="xs:string"/>
+            <xs:element name="peso" nillable="true" type="xs:int"/>
+            <xs:element name="puerperio" nillable="true" type="xs:string"/>
+            <xs:element name="lactanciaMaternal" nillable="true" type="xs:boolean"/>
+            <xs:element name="duracionLactanciaMaterna" nillable="true" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Obstetricos" type="ObstetricosType"/>
+</xs:schema>

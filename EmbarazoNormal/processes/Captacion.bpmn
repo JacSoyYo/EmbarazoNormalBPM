@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions fileRevision="20110706" version="11.1.1.6.0.15.53" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://xmlns.oracle.com/bpm/OracleExtensions" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns4="http://www.omg.org/spec/DD/20100524/DC" xmlns:ns3="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <process processType="Public" isExecutable="true" name="Captacion" id="Captacion">
+        <extensionElements>
+            <ns2:OracleExtensions>
+                <ns2:FeatureSet>
+                    <ns2:BooleanFeature value="false" name="atomic"/>
+                    <ns2:BooleanFeature value="false" name="instanceScreenflow"/>
+                    <ns2:BooleanFeature value="true" name="relative-coordinates"/>
+                    <ns2:BooleanFeature value="true" name="sharePredefineVariables"/>
+                    <ns2:BooleanFeature value="true" name="suspendInstanceOnDataAssociationError"/>
+                    <ns2:StringFeature value="" name="ANALYTICS_VIEW_IDENTIFIER"/>
+                    <ns2:StringFeature value="" name="AUTHOR"/>
+                    <ns2:StringFeature value="default" name="GreedyExecutionMode"/>
+                    <ns2:StringFeature value="http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion" name="NAMESPACE"/>
+                    <ns2:StringFeature value="PROJECT_DEFAULT" name="generatesEvents"/>
+                    <ns2:StringFeature value="HORIZONTAL_LAYOUT" name="process-layout"/>
+                    <ns2:StringFeature value="1.0" name="scale"/>
+                    <ns2:StringFeature value="REGULAR" name="sealType"/>
+                </ns2:FeatureSet>
+                <ns2:Conversations>
+                    <ns2:Conversation id="CONVERSATION52371608563" type="define_interface">
+                        <ns2:DefineInterfaceConversationDefinition exposeSOAPService="true"/>
+                    </ns2:Conversation>
+                    <ns2:Conversation id="CONVERSATION52408303859" type="service_call">
+                        <ns2:ServiceCallConversationDefinition service="Services.Externals.GestorConsultaCiudadano"/>
+                    </ns2:Conversation>
+                </ns2:Conversations>
+            </ns2:OracleExtensions>
+        </extensionElements>
+        <laneSet>
+            <lane name="Matrona" id="lane0">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes backgroundColor="-1761607681">
+                            <ns2:Position x="0" y="0"/>
+                            <ns2:Size width="216" height="0"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:LaneAttributes roleId="Matrona"/>
+                        <ns2:FeatureSet/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </lane>
+        </laneSet>
+        <serviceTask implementation="Services.Externals.GestorConsultaCiudadano" operationRef="solicitudPorCip" isForCompensation="false" name="ConsultarTarjetaSanitaria" id="ABSTRACT_ACTIVITY5237383493766">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position x="243" y="108"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION52408303859">
+                        <ns2:ServiceCallConversationalDefinition operation="solicitudPorCip"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <ioSpecification>
+                <dataInput name="string" id="string">
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:TypeRef namespace="http://www.w3.org/2001/XMLSchema" type="string" isArray="false"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                </dataInput>
+                <dataOutput name="consultaCiudadano" id="consultaCiudadano">
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:TypeRef namespace="http://gestorConsultaCiudadano.ejb.common.civitas/types" type="consultaCiudadano" isArray="false"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                </dataOutput>
+                <inputSet id="ABSTRACT_ACTIVITY5237383493766_uniqueInputSet">
+                    <dataInputRefs>string</dataInputRefs>
+                </inputSet>
+                <outputSet id="ABSTRACT_ACTIVITY5237383493766_uniqueOutputSet">
+                    <dataOutputRefs>consultaCiudadano</dataOutputRefs>
+                </outputSet>
+            </ioSpecification>
+            <dataInputAssociation>
+                <extensionElements>
+                    <ns2:OracleExtensions/>
+                </extensionElements>
+                <sourceRef>datosDemograficos</sourceRef>
+                <targetRef>string</targetRef>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:cip
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataInput('string')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+            </dataInputAssociation>
+            <dataOutputAssociation>
+                <extensionElements>
+                    <ns2:OracleExtensions/>
+                </extensionElements>
+                <sourceRef>consultaCiudadano</sourceRef>
+                <targetRef>datosDemograficos</targetRef>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/apelUsuario1
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:apellido1
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/apelUsuario2
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:apellido2
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/cip
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:cip
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/codigoPostal
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:codigoPostal
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/dniUsuario
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:dni
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/codLocalidad
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:localidad
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/nomUsuario
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:nombre
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('consultaCiudadano')/telefono
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:telefono
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">concat(bpmn:getDataOutput('consultaCiudadano')/direccion, bpmn:getDataOutput('consultaCiudadano')/numDireccion, bpmn:getDataOutput('consultaCiudadano')/otraDireccion)
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')/ns:domicilio
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+            </dataOutputAssociation>
+        </serviceTask>
+        <userTask isForCompensation="false" name="ConfirmarDatosDemograficos" id="ABSTRACT_ACTIVITY5237432177194">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position x="392" y="107"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="reinitiate"/>
+                        <ns2:BooleanFeature value="false" name="manualCreation"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        <ns2:StringFeature value="REUSE_PAYLOAD" name="reinitiatorPolicy"/>
+                        <ns2:StringFeature value="SIMPLE" name="humanTaskType"/>
+                        <ns2:StringFeature value="" name="reinitiateSource"/>
+                    </ns2:FeatureSet>
+                    <ns2:HumanTask humanTaskReference="HumanTasks.ConfirmarDatosDemograficos"/>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <ioSpecification>
+                <dataInput name="datosDemograficos" id="datosDemograficos">
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                </dataInput>
+                <dataInput name="execData" id="execData">
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:TypeRef namespace="http://xmlns.oracle.com/bpel/workflow/task" element="task" isArray="false"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                </dataInput>
+                <dataOutput name="outcome" id="outcome">
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:TypeRef namespace="http://www.w3.org/2001/XMLSchema" type="string" isArray="false"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                </dataOutput>
+                <dataOutput name="execData" id="execData">
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:TypeRef namespace="http://xmlns.oracle.com/bpel/workflow/task" element="task" isArray="false"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                </dataOutput>
+                <inputSet id="ABSTRACT_ACTIVITY5237432177194_uniqueInputSet">
+                    <dataInputRefs>datosDemograficos</dataInputRefs>
+                    <dataInputRefs>execData</dataInputRefs>
+                </inputSet>
+                <outputSet id="ABSTRACT_ACTIVITY5237432177194_uniqueOutputSet">
+                    <dataOutputRefs>outcome</dataOutputRefs>
+                    <dataOutputRefs>execData</dataOutputRefs>
+                </outputSet>
+            </ioSpecification>
+            <dataInputAssociation>
+                <extensionElements>
+                    <ns2:OracleExtensions/>
+                </extensionElements>
+                <sourceRef>datosDemograficos</sourceRef>
+                <targetRef>datosDemograficos</targetRef>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataInput('datosDemograficos')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+            </dataInputAssociation>
+            <resourceRole name="Matrona" id="lane0"/>
+        </userTask>
+        <startEvent isInterrupting="false" name="Start" id="START_EVENT5237160856330">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position x="108" y="108"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="catchAllErrors"/>
+                        <ns2:BooleanFeature value="false" name="catchAllSystemExceptions"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION52371608563">
+                        <ns2:DefineInterfaceConversationalDefinition definedOperationName="start"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <dataOutput name="captacionIN" id="captacionIN">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </dataOutput>
+            <dataOutputAssociation>
+                <extensionElements>
+                    <ns2:OracleExtensions/>
+                </extensionElements>
+                <sourceRef>captacionIN</sourceRef>
+                <targetRef>datosDemograficos</targetRef>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('captacionIN')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+            </dataOutputAssociation>
+            <outputSet id="START_EVENT5237160856330_uniqueOutputSet">
+                <dataOutputRefs>captacionIN</dataOutputRefs>
+            </outputSet>
+            <messageEventDefinition/>
+        </startEvent>
+        <endEvent name="End" id="END_EVENT5237160856317">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position x="531" y="107"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="catchAllErrors"/>
+                        <ns2:BooleanFeature value="false" name="catchAllSystemExceptions"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION52371608563">
+                        <ns2:DefineInterfaceConversationalDefinition definedOperationName="end"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <dataInput name="captacionOUT" id="captacionOUT">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </dataInput>
+            <dataInputAssociation>
+                <extensionElements>
+                    <ns2:OracleExtensions/>
+                </extensionElements>
+                <sourceRef>datosDemograficos</sourceRef>
+                <targetRef>captacionOUT</targetRef>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('datosDemograficos')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataInput('captacionOUT')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+            </dataInputAssociation>
+            <inputSet id="END_EVENT5237160856317_uniqueInputSet">
+                <dataInputRefs>captacionOUT</dataInputRefs>
+            </inputSet>
+            <messageEventDefinition/>
+        </endEvent>
+        <sequenceFlow sourceRef="START_EVENT5237160856330" targetRef="ABSTRACT_ACTIVITY5237383493766" name="sf49" id="sf49">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes>
+                        <ns2:Positions x="140" y="108"/>
+                    </ns2:SequenceFlowAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="140,108" name="curve"/>
+                        <ns2:StringFeature value="ORTHOGONAL" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow sourceRef="ABSTRACT_ACTIVITY5237383493766" targetRef="ABSTRACT_ACTIVITY5237432177194" name="sf66" id="sf66">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes/>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                        <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow sourceRef="ABSTRACT_ACTIVITY5237432177194" targetRef="END_EVENT5237160856317" name="sf67" id="sf67">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes/>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                        <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+        <dataObject name="datosDemograficos" id="datosDemograficos">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:DataObjectType initialize="true">
+                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                    </ns2:DataObjectType>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </dataObject>
+    </process>
+</definitions>

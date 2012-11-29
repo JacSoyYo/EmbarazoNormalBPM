@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions fileRevision="20110706" version="11.1.1.6.0.15.53" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://xmlns.oracle.com/bpm/OracleExtensions" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns4="http://www.omg.org/spec/DD/20100524/DC" xmlns:ns3="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <process isExecutable="true" processType="Public" name="EmbarazoNormal" id="EmbarazoNormal">
+        <extensionElements>
+            <ns2:OracleExtensions>
+                <ns2:FeatureSet>
+                    <ns2:BooleanFeature value="false" name="atomic"/>
+                    <ns2:BooleanFeature value="false" name="instanceScreenflow"/>
+                    <ns2:BooleanFeature value="true" name="relative-coordinates"/>
+                    <ns2:BooleanFeature value="true" name="sharePredefineVariables"/>
+                    <ns2:BooleanFeature value="true" name="suspendInstanceOnDataAssociationError"/>
+                    <ns2:StringFeature value="" name="ANALYTICS_VIEW_IDENTIFIER"/>
+                    <ns2:StringFeature value="" name="AUTHOR"/>
+                    <ns2:StringFeature value="default" name="GreedyExecutionMode"/>
+                    <ns2:StringFeature value="http://xmlns.oracle.com/bpmn/bpmnProcess/EmbarazoNormal" name="NAMESPACE"/>
+                    <ns2:StringFeature value="PROJECT_DEFAULT" name="generatesEvents"/>
+                    <ns2:StringFeature value="HORIZONTAL_LAYOUT" name="process-layout"/>
+                    <ns2:StringFeature value="1.0" name="scale"/>
+                    <ns2:StringFeature value="REGULAR" name="sealType"/>
+                </ns2:FeatureSet>
+                <ns2:Conversations>
+                    <ns2:Conversation type="define_interface" id="CONVERSATION52365209094">
+                        <ns2:DefineInterfaceConversationDefinition exposeSOAPService="true"/>
+                    </ns2:Conversation>
+                    <ns2:Conversation type="process_call" id="CONVERSATION52371649955">
+                        <ns2:ProcessCallConversationDefinition process="Captacion"/>
+                    </ns2:Conversation>
+                    <ns2:Conversation type="process_call" id="CONVERSATION52373550188">
+                        <ns2:ProcessCallConversationDefinition process="PrimeraConsultaAP"/>
+                    </ns2:Conversation>
+                </ns2:Conversations>
+            </ns2:OracleExtensions>
+        </extensionElements>
+        <laneSet>
+            <lane name="AutomaticHandler" id="lane1">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes backgroundColor="-1761607681">
+                            <ns2:Position y="0" x="0"/>
+                            <ns2:Size height="0" width="280"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:LaneAttributes roleId="AutomaticHandler"/>
+                        <ns2:FeatureSet/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </lane>
+        </laneSet>
+        <subProcess triggeredByEvent="false" isForCompensation="false" name="Captacion" id="SUBPROCESS5237004040257">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position y="140" x="365"/>
+                        <ns2:Size height="200" width="390"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="true" name="collapsed"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <ioSpecification/>
+            <sendTask isForCompensation="false" name="SendTask" id="ABSTRACT_ACTIVITY5237164091883">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="140"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:BooleanFeature value="false" name="inputValidation"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                        <ns2:Conversational conversation="CONVERSATION52371649955">
+                            <ns2:ProcessCallConversationalDefinition targetConversational="START_EVENT5237160856330"/>
+                        </ns2:Conversational>
+                        <ns2:LogHandlers/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <ioSpecification>
+                    <dataInput name="captacionIN" id="captacionIN">
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:TypeRef isArray="false" element="DatosDemograficos" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </dataInput>
+                    <inputSet id="ABSTRACT_ACTIVITY5237164091883_uniqueInputSet">
+                        <dataInputRefs>captacionIN</dataInputRefs>
+                    </inputSet>
+                </ioSpecification>
+                <dataInputAssociation>
+                    <extensionElements>
+                        <ns2:OracleExtensions/>
+                    </extensionElements>
+                    <sourceRef>cartillaSaludEmbarazada</sourceRef>
+                    <targetRef>captacionIN</targetRef>
+                    <assignment>
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:DataAssignment operation="copy"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                        <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('cartillaSaludEmbarazada')/ns:datosDemograficos
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </from>
+                        <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataInput('captacionIN')
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </to>
+                    </assignment>
+                </dataInputAssociation>
+            </sendTask>
+            <receiveTask instantiate="false" isForCompensation="false" name="ReceiveTask" id="ABSTRACT_ACTIVITY5237166494258">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="240"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:BooleanFeature value="false" name="outputValidation"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                        <ns2:Conversational conversation="CONVERSATION52371649955">
+                            <ns2:ProcessCallConversationalDefinition targetConversational="END_EVENT5237160856317"/>
+                        </ns2:Conversational>
+                        <ns2:LogHandlers/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <ioSpecification>
+                    <dataOutput name="captacionOUT" id="captacionOUT">
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:TypeRef isArray="false" element="DatosDemograficos" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </dataOutput>
+                    <outputSet id="ABSTRACT_ACTIVITY5237166494258_uniqueOutputSet">
+                        <dataOutputRefs>captacionOUT</dataOutputRefs>
+                    </outputSet>
+                </ioSpecification>
+                <dataOutputAssociation>
+                    <extensionElements>
+                        <ns2:OracleExtensions/>
+                    </extensionElements>
+                    <sourceRef>captacionOUT</sourceRef>
+                    <targetRef>cartillaSaludEmbarazada</targetRef>
+                    <assignment>
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:DataAssignment operation="copy"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                        <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('captacionOUT')
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </from>
+                        <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('cartillaSaludEmbarazada')/ns:datosDemograficos
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </to>
+                    </assignment>
+                </dataOutputAssociation>
+            </receiveTask>
+            <startEvent isInterrupting="false" name="Start1" id="START_EVENT5237004393558">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="40"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:BooleanFeature value="false" name="outputValidation"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <outputSet/>
+            </startEvent>
+            <endEvent name="End1" id="END_EVENT5237004393645">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="340"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="inputValidation"/>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <inputSet/>
+            </endEvent>
+            <sequenceFlow targetRef="ABSTRACT_ACTIVITY5237164091883" sourceRef="START_EVENT5237004393558" name="sf49" id="sf49">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:SequenceFlowAttributes/>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                            <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                            <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </sequenceFlow>
+            <sequenceFlow targetRef="ABSTRACT_ACTIVITY5237166494258" sourceRef="ABSTRACT_ACTIVITY5237164091883" name="sf51" id="sf51">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:SequenceFlowAttributes/>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                            <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                            <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </sequenceFlow>
+            <sequenceFlow targetRef="END_EVENT5237004393645" sourceRef="ABSTRACT_ACTIVITY5237166494258" name="sf52" id="sf52">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:SequenceFlowAttributes/>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                            <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                            <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </sequenceFlow>
+        </subProcess>
+        <subProcess triggeredByEvent="false" isForCompensation="false" name="PrimeraConsultaAP" id="SUBPROCESS5237343436633">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position y="140" x="775"/>
+                        <ns2:Size height="200" width="390"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="true" name="collapsed"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <ioSpecification/>
+            <sendTask isForCompensation="false" name="SendTask1" id="ABSTRACT_ACTIVITY523735419746">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="140"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:BooleanFeature value="false" name="inputValidation"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                        <ns2:Conversational conversation="CONVERSATION52373550188">
+                            <ns2:ProcessCallConversationalDefinition targetConversational="START_EVENT5237337973119"/>
+                        </ns2:Conversational>
+                        <ns2:LogHandlers/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <ioSpecification>
+                    <dataInput name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:TypeRef isArray="false" element="CartillaSaludEmbarazada" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </dataInput>
+                    <inputSet id="ABSTRACT_ACTIVITY523735419746_uniqueInputSet">
+                        <dataInputRefs>cartillaSaludEmbarazada</dataInputRefs>
+                    </inputSet>
+                </ioSpecification>
+                <dataInputAssociation>
+                    <extensionElements>
+                        <ns2:OracleExtensions/>
+                    </extensionElements>
+                    <sourceRef>cartillaSaludEmbarazada</sourceRef>
+                    <targetRef>cartillaSaludEmbarazada</targetRef>
+                    <assignment>
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:DataAssignment operation="copy"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                        <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('cartillaSaludEmbarazada')
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </from>
+                        <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataInput('cartillaSaludEmbarazada')
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </to>
+                    </assignment>
+                </dataInputAssociation>
+            </sendTask>
+            <receiveTask instantiate="false" isForCompensation="false" name="ReceiveTask1" id="ABSTRACT_ACTIVITY5237357984126">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="240"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:BooleanFeature value="false" name="outputValidation"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                        <ns2:Conversational conversation="CONVERSATION52373550188">
+                            <ns2:ProcessCallConversationalDefinition targetConversational="END_EVENT5237337973220"/>
+                        </ns2:Conversational>
+                        <ns2:LogHandlers/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <ioSpecification>
+                    <dataOutput name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:TypeRef isArray="false" element="CartillaSaludEmbarazada" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </dataOutput>
+                    <outputSet id="ABSTRACT_ACTIVITY5237357984126_uniqueOutputSet">
+                        <dataOutputRefs>cartillaSaludEmbarazada</dataOutputRefs>
+                    </outputSet>
+                </ioSpecification>
+                <dataOutputAssociation>
+                    <extensionElements>
+                        <ns2:OracleExtensions/>
+                    </extensionElements>
+                    <sourceRef>cartillaSaludEmbarazada</sourceRef>
+                    <targetRef>cartillaSaludEmbarazada</targetRef>
+                    <assignment>
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:DataAssignment operation="copy"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                        <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('cartillaSaludEmbarazada')
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </from>
+                        <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataObject('cartillaSaludEmbarazada')
+                            <extensionElements>
+                                <ns2:OracleExtensions>
+                                    <ns2:Expression mode="simple"/>
+                                </ns2:OracleExtensions>
+                            </extensionElements>
+                        </to>
+                    </assignment>
+                </dataOutputAssociation>
+            </receiveTask>
+            <startEvent isInterrupting="false" name="Start2" id="START_EVENT5237343583681">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="40"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:BooleanFeature value="false" name="outputValidation"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <outputSet/>
+            </startEvent>
+            <endEvent name="End2" id="END_EVENT5237343583685">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:GraphicsAttributes>
+                            <ns2:Position y="100" x="340"/>
+                        </ns2:GraphicsAttributes>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="inputValidation"/>
+                            <ns2:BooleanFeature value="false" name="isDraft"/>
+                            <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                            <ns2:StringFeature value="Begin Level" name="level"/>
+                            <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+                <inputSet/>
+            </endEvent>
+            <sequenceFlow targetRef="ABSTRACT_ACTIVITY523735419746" sourceRef="START_EVENT5237343583681" name="sf62" id="sf62">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:SequenceFlowAttributes/>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                            <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                            <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </sequenceFlow>
+            <sequenceFlow targetRef="ABSTRACT_ACTIVITY5237357984126" sourceRef="ABSTRACT_ACTIVITY523735419746" name="sf64" id="sf64">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:SequenceFlowAttributes/>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                            <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                            <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </sequenceFlow>
+            <sequenceFlow targetRef="END_EVENT5237343583685" sourceRef="ABSTRACT_ACTIVITY5237357984126" name="sf65" id="sf65">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:SequenceFlowAttributes/>
+                        <ns2:FeatureSet>
+                            <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                            <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                            <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                        </ns2:FeatureSet>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </sequenceFlow>
+        </subProcess>
+        <startEvent isInterrupting="false" name="Start" id="START_EVENT5236520909477">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position y="140" x="100"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="catchAllErrors"/>
+                        <ns2:BooleanFeature value="false" name="catchAllSystemExceptions"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:BooleanFeature value="false" name="outputValidation"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION52365209094">
+                        <ns2:DefineInterfaceConversationalDefinition definedOperationName="start"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <dataOutput name="cip" id="cip">
+                <extensionElements>
+                    <ns2:OracleExtensions>
+                        <ns2:TypeRef isArray="false" type="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+                    </ns2:OracleExtensions>
+                </extensionElements>
+            </dataOutput>
+            <dataOutputAssociation>
+                <extensionElements>
+                    <ns2:OracleExtensions/>
+                </extensionElements>
+                <sourceRef>cip</sourceRef>
+                <targetRef>cartillaSaludEmbarazada</targetRef>
+                <assignment>
+                    <extensionElements>
+                        <ns2:OracleExtensions>
+                            <ns2:DataAssignment operation="copy"/>
+                        </ns2:OracleExtensions>
+                    </extensionElements>
+                    <from xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:bpmn="http://www.omg.org/bpmn20">bpmn:getDataOutput('cip')
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </from>
+                    <to xsi:type="tFormalExpression" language="http://www.w3.org/1999/XPath" xmlns:ns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada" xmlns:bpmn="http://www.omg.org/bpmn20" xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos">bpmn:getDataObject('cartillaSaludEmbarazada')/ns:datosDemograficos/ns1:cip
+                        <extensionElements>
+                            <ns2:OracleExtensions>
+                                <ns2:Expression mode="simple"/>
+                            </ns2:OracleExtensions>
+                        </extensionElements>
+                    </to>
+                </assignment>
+            </dataOutputAssociation>
+            <outputSet id="START_EVENT5236520909477_uniqueOutputSet">
+                <dataOutputRefs>cip</dataOutputRefs>
+            </outputSet>
+            <messageEventDefinition/>
+        </startEvent>
+        <endEvent name="End" id="END_EVENT5236520909432">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:GraphicsAttributes>
+                        <ns2:Position y="140" x="1040"/>
+                    </ns2:GraphicsAttributes>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="catchAllErrors"/>
+                        <ns2:BooleanFeature value="false" name="catchAllSystemExceptions"/>
+                        <ns2:BooleanFeature value="false" name="inputValidation"/>
+                        <ns2:BooleanFeature value="false" name="isDraft"/>
+                        <ns2:StringFeature value="PROCESS_DEFAULT" name="generatesEvents"/>
+                        <ns2:StringFeature value="Begin Level" name="level"/>
+                        <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
+                    </ns2:FeatureSet>
+                    <ns2:Conversational conversation="CONVERSATION52365209094">
+                        <ns2:DefineInterfaceConversationalDefinition definedOperationName="end"/>
+                    </ns2:Conversational>
+                    <ns2:LogHandlers/>
+                </ns2:OracleExtensions>
+            </extensionElements>
+            <inputSet/>
+            <messageEventDefinition/>
+        </endEvent>
+        <sequenceFlow targetRef="SUBPROCESS5237004040257" sourceRef="START_EVENT5236520909477" name="sf12" id="sf12">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes/>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                        <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow targetRef="SUBPROCESS5237343436633" sourceRef="SUBPROCESS5237004040257" name="sf50" id="sf50">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes/>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                        <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+        <sequenceFlow targetRef="END_EVENT5236520909432" sourceRef="SUBPROCESS5237343436633" name="sf63" id="sf63">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:SequenceFlowAttributes/>
+                    <ns2:FeatureSet>
+                        <ns2:BooleanFeature value="false" name="collapseMessage"/>
+                        <ns2:StringFeature value="-2147483648,-2147483648" name="curve"/>
+                        <ns2:StringFeature value="STRAIGHT" name="routing"/>
+                    </ns2:FeatureSet>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </sequenceFlow>
+        <dataObject name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
+            <extensionElements>
+                <ns2:OracleExtensions>
+                    <ns2:DataObjectType initialize="true">
+                        <ns2:TypeRef isArray="false" element="CartillaSaludEmbarazada" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada"/>
+                    </ns2:DataObjectType>
+                </ns2:OracleExtensions>
+            </extensionElements>
+        </dataObject>
+    </process>
+</definitions>

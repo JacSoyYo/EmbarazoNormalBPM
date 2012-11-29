@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.6.0.15.53" fileRevision="20110706"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="Captacion">
+        <topicDocumentations>
+            <topicDocumentation name="Captacion">
+                <descriptions>
+                    <description locale="en">Tramite 1 - Captacion</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ABSTRACT_ACTIVITY5237383493766">
+                <labels>
+                    <label locale="en">ConsultarTarjetaSanitaria</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ABSTRACT_ACTIVITY5237432177194">
+                <labels>
+                    <label locale="en">ConfirmarDatosDemograficos</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="START_EVENT5237160856330">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT5237160856317">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="sf49"/>
+            <topicDocumentation name="sf66"/>
+            <topicDocumentation name="sf67"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>

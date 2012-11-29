@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.6.0.15.53" build="15.53" fullName="Sacyl.Embarazo.Antecedentes" modifiers="0"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<xs:schema targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/Antecedentes" elementFormDefault="qualified" xmlns:ns3="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecedentesAlergias"  xmlns:ns1="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecentesPersonales"  xmlns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/Antecedentes"  xmlns:ns4="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecedentesHabitos"  xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:ns2="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecedentesInmunizaciones"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecedentesHabitos" schemaLocation="AntecedentesHabitos.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecentesPersonales" schemaLocation="AntecentesPersonales.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecedentesAlergias" schemaLocation="AntecedentesAlergias.xsd"/>
+    <xs:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/AntecedentesInmunizaciones" schemaLocation="AntecedentesInmunizaciones.xsd"/>
+    <xs:complexType name="AntecedentesType">
+        <xs:sequence>
+            <xs:element name="familiares" nillable="true" type="xs:string"/>
+            <xs:element name="personales" nillable="true" type="ns1:AntecentesPersonalesType"/>
+            <xs:element name="inmunizaciones" nillable="true" type="ns2:AntecedentesInmunizacionesType"/>
+            <xs:element name="alergias" nillable="true" type="ns3:AntecedentesAlergiasType"/>
+            <xs:element name="habitos" nillable="true" type="ns4:AntecedentesHabitosType"/>
+            <xs:element name="medicamentos" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>
+                        <bpmo:documentable>
+                            <bpmo:description>
+                                MEDICAMENTOS QUE TOMA HABITUALMENTE
+                            </bpmo:description>
+                        </bpmo:documentable>
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Antecedentes" type="AntecedentesType"/>
+</xs:schema>

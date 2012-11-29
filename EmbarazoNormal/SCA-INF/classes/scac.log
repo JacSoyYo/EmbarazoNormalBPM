@@ -1,0 +1,6 @@
+[WARN ][jrockit] PermSize=32m ignored: Not a valid option for JRockit
+[WARN ][jrockit] MaxPermSize=256m ignored: Not a valid option for JRockit
+27-nov-2012 9:37:01 oracle.mds
+NOTIFICATION: La instancia de PManager se ha creado sin soporte de varios contenidos, ya que el indicador de JVM "oracle.multitenant.enabled" no se ha definido para activar el soporte de varios contenidos.
+27-nov-2012 9:37:07 oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.

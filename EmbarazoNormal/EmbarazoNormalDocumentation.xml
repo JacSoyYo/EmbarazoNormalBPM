@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="11.1.1.6.0.15.53" fileRevision="20110706"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+    <component name="EmbarazoNormal">
+        <topicDocumentations>
+            <topicDocumentation name="EmbarazoNormal">
+                <descriptions>
+                    <description locale="en">EmbarazoNormal</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="SUBPROCESS5237004040257">
+                <labels>
+                    <label locale="en">Captacion</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Tramite 1 - Captacion</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ABSTRACT_ACTIVITY5237164091883">
+                <labels>
+                    <label locale="en">SendTask</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ABSTRACT_ACTIVITY5237166494258">
+                <labels>
+                    <label locale="en">ReceiveTask</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="START_EVENT5237004393558">
+                <labels>
+                    <label locale="en">Start1</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT5237004393645">
+                <labels>
+                    <label locale="en">End1</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf49"/>
+            <topicDocumentation name="sf51"/>
+            <topicDocumentation name="sf52"/>
+            <topicDocumentation name="SUBPROCESS5237343436633">
+                <labels>
+                    <label locale="en">PrimeraConsultaAP</label>
+                </labels>
+                <descriptions>
+                    <description locale="en">Tramite 2 - PrimeraConsultaAP</description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ABSTRACT_ACTIVITY523735419746">
+                <labels>
+                    <label locale="en">SendTask1</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="ABSTRACT_ACTIVITY5237357984126">
+                <labels>
+                    <label locale="en">ReceiveTask1</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="START_EVENT5237343583681">
+                <labels>
+                    <label locale="en">Start2</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT5237343583685">
+                <labels>
+                    <label locale="en">End2</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf62"/>
+            <topicDocumentation name="sf64"/>
+            <topicDocumentation name="sf65"/>
+            <topicDocumentation name="START_EVENT5236520909477">
+                <labels>
+                    <label locale="en">Start</label>
+                </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
+            </topicDocumentation>
+            <topicDocumentation name="END_EVENT5236520909432">
+                <labels>
+                    <label locale="en">End</label>
+                </labels>
+            </topicDocumentation>
+            <topicDocumentation name="sf12"/>
+            <topicDocumentation name="sf50"/>
+            <topicDocumentation name="sf63"/>
+        </topicDocumentations>
+    </component>
+</processDocumentation>
