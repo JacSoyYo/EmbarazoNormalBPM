@@ -5,21 +5,21 @@
 <!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
 <!--####                                                                                ####-->
 <!--########################################################################################-->
-<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:tns6="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos"  xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" >
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:tns6="http://xmlns.sacyl.es/bpmn/pca/embarazo" >
     <wsdl:types>
         <xsd:schema targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion">
-            <xsd:import namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" schemaLocation="businessCatalog/Sacyl/Embarazo/DatosDemograficos.xsd"/>
+            <xsd:import namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" schemaLocation="xsd/embarazo-normal.xsd"/>
             <xsd:element name="start">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element ref="tns6:DatosDemograficos"/>
+                        <xsd:element name="captacionIN" type="tns6:DatosDemograficosType"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
             <xsd:element name="endResponse">
                 <xsd:complexType>
                     <xsd:sequence>
-                        <xsd:element ref="tns6:DatosDemograficos"/>
+                        <xsd:element name="captacionOUT" type="tns6:DatosDemograficosType"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>

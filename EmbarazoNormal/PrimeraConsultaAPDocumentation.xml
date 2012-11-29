@@ -12,11 +12,17 @@
                 <labels>
                     <label locale="en">Start</label>
                 </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
             </topicDocumentation>
             <topicDocumentation name="END_EVENT5237337973220">
                 <labels>
                     <label locale="en">End</label>
                 </labels>
+                <descriptions>
+                    <description locale="en"></description>
+                </descriptions>
             </topicDocumentation>
             <topicDocumentation name="sf60"/>
         </topicDocumentations>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?bpmo version="11.1.1.6.0.15.53" build="15.53" fullName="Sacyl.EmbarazoNormal.CartillaSaludEmbarazada" modifiers="268435456"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<definitions targetNamespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/EmbarazoNormal/CartillaSaludEmbarazada.Interface" name="CartillaSaludEmbarazada" xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns="http://schemas.xmlsoap.org/wsdl/"  xmlns:oj="http://xmlns.sacyl.es/bpmn/pca/embarazo"  xmlns:tns="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/EmbarazoNormal/CartillaSaludEmbarazada.Interface"  xmlns:bpmo="http://xmlns.oracle.com/bpm/bpmobject/" >
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" schemaLocation="../../../xsd/embarazo-normal.xsd"/>
+        </xsd:schema>
+    </types>
+    <portType name="CartillaSaludEmbarazadaPortType"/>
+    <binding name="CartillaSaludEmbarazadaPortTypeBinding" type="tns:CartillaSaludEmbarazadaPortType">
+        <bpmo:binding element="oj:CartillaSaludEmbarazada"/>
+    </binding>
+</definitions>

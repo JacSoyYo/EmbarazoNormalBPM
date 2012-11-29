@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos">
-   <import namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" schemaLocation="../businessCatalog/Sacyl/Embarazo/DatosDemograficos.xsd"/>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.sacyl.es/bpmn/pca/embarazo">
+   <import namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" schemaLocation="embarazo-normal.xsd"/>
    <complexType name="ConfirmarDatosDemograficosPayloadType">
       <sequence>
-         <element ref="ns0:DatosDemograficos"/>
+         <element name="DatosDemograficos" type="ns0:DatosDemograficosType"/>
       </sequence>
    </complexType>
 </schema>

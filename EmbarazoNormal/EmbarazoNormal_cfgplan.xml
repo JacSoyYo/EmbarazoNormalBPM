@@ -17,16 +17,16 @@
             <replace/>
          </searchReplace>
       </import>
-      <service name="PrimeraConsultaAP.service">
+      <service name="Captacion.service">
          <binding type="ws">
             <attribute name="port">
-               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/PrimeraConsultaAP#wsdl.endpoint(PrimeraConsultaAP.service/PrimeraConsultaAPPort)</replace>
+               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion#wsdl.endpoint(Captacion.service/CaptacionPort)</replace>
             </attribute>
          </binding>
          <callback>
             <binding type="ws">
                <attribute name="port">
-                  <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/PrimeraConsultaAP#wsdl.endpoint(PrimeraConsultaAP.service/PrimeraConsultaAPPortTypeCallBack_pt)</replace>
+                  <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion#wsdl.endpoint(Captacion.service/CaptacionPortTypeCallBack_pt)</replace>
                </attribute>
             </binding>
          </callback>
@@ -45,16 +45,16 @@
             </binding>
          </callback>
       </service>
-      <service name="Captacion.service">
+      <service name="PrimeraConsultaAP.service">
          <binding type="ws">
             <attribute name="port">
-               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion#wsdl.endpoint(Captacion.service/CaptacionPort)</replace>
+               <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/PrimeraConsultaAP#wsdl.endpoint(PrimeraConsultaAP.service/PrimeraConsultaAPPort)</replace>
             </attribute>
          </binding>
          <callback>
             <binding type="ws">
                <attribute name="port">
-                  <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/Captacion#wsdl.endpoint(Captacion.service/CaptacionPortTypeCallBack_pt)</replace>
+                  <replace>http://xmlns.oracle.com/bpmn/bpmnProcess/PrimeraConsultaAP#wsdl.endpoint(PrimeraConsultaAP.service/PrimeraConsultaAPPortTypeCallBack_pt)</replace>
                </attribute>
             </binding>
          </callback>
@@ -98,7 +98,7 @@
 		<replace>8889</replace>
 	<searchReplace>
 	-->
-   <wsdlAndSchema name="PrimeraConsultaAP.wsdl|EmbarazoNormal.wsdl|businessCatalog/Sacyl/Embarazo/AntecentesPersonales.xsd|businessCatalog/Sacyl/Embarazo/DatosDemograficos.xsd|businessCatalog/Sacyl/Embarazo/Ginecologicos.xsd|businessCatalog/Sacyl/Embarazo/Ginecologicos.wsdl|businessCatalog/Sacyl/Embarazo/PersonalSanitario.xsd|businessCatalog/Sacyl/Embarazo/AntecedentesInmunizaciones.wsdl|businessCatalog/Sacyl/Embarazo/PersonalSanitario.wsdl|businessCatalog/Sacyl/Embarazo/AntecedentesAlergias.wsdl|businessCatalog/Sacyl/Embarazo/DatosLaborales.wsdl|businessCatalog/Sacyl/Embarazo/DatosLaborales.xsd|businessCatalog/Sacyl/Embarazo/Obstetricos.wsdl|businessCatalog/Sacyl/Embarazo/CartillaSaludEmbarazada.wsdl|businessCatalog/Sacyl/Embarazo/Antecedentes.xsd|businessCatalog/Sacyl/Embarazo/Antecedentes.wsdl|businessCatalog/Sacyl/Embarazo/AntecentesPersonales.wsdl|businessCatalog/Sacyl/Embarazo/AntecedentesHabitos.wsdl|businessCatalog/Sacyl/Embarazo/DatosDemograficos.wsdl|businessCatalog/Sacyl/Embarazo/AntecedentesInmunizaciones.xsd|businessCatalog/Sacyl/Embarazo/AntecedentesAlergias.xsd|businessCatalog/Sacyl/Embarazo/AntecedentesHabitos.xsd|businessCatalog/Sacyl/Embarazo/CartillaSaludEmbarazada.xsd|businessCatalog/Sacyl/Embarazo/Obstetricos.xsd|GestorConsultaCiudadanoListener.wsdl|Captacion.wsdl|xsd/ConfirmarDatosDemograficosPayload.xsd|xsd/ConfirmarDatosDemograficosWorkflowTask.xsd|xsd/TaskStateMachine.xsd|xsd/embarazo-normal.xsd">
+   <wsdlAndSchema name="PrimeraConsultaAP.wsdl|EmbarazoNormal.wsdl|businessCatalog/Sacyl/EmbarazoNormal/CartillaSaludEmbarazada.wsdl|businessCatalog/Sacyl/EmbarazoNormal/DatosDemograficos.wsdl|GestorConsultaCiudadanoListener.wsdl|Captacion.wsdl|xsd/ConfirmarDatosDemograficosPayload.xsd|xsd/ConfirmarDatosDemograficosWorkflowTask.xsd|xsd/general.xsd|xsd/TaskStateMachine.xsd|xsd/embarazo-normal.xsd">
       <searchReplace>
          <search/>
          <replace/>

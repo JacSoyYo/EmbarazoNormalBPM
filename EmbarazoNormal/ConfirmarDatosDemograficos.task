@@ -26,14 +26,15 @@
          <groupNotificationConfiguration>SEND_INDIVIDUAL_NOTIFICATION</groupNotificationConfiguration>
       </notification>
    </routingSlip>
-   <workflowConfiguration xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns="http://xmlns.oracle.com/bpel/workflow/configuration">
+   <workflowConfiguration xmlns:ns0="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" xmlns="http://xmlns.oracle.com/bpel/workflow/configuration"
+                          xmlns:ns1="http://xmlns.sacyl.es/bpmn/pca/embarazo">
       <outcomes>
          <outcome>APPROVE</outcome>
          <outcome>REJECT</outcome>
       </outcomes>
       <payload xmlSchemaDefinition="xsd/ConfirmarDatosDemograficosPayload.xsd">
-         <messageAttribute name="DatosDemograficos" attributeType="ELEMENT"
-                           type="ns0:DatosDemograficos" updatable="false"
+         <messageAttribute name="DatosDemograficos" attributeType="COMPLEX_TYPE"
+                           type="ns1:DatosDemograficosType" updatable="false"
                            external="false"/>
       </payload>
       <bpelEventListener>false</bpelEventListener>

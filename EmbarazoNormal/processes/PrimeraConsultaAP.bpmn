@@ -63,7 +63,7 @@
             <dataOutput name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
                 <extensionElements>
                     <ns2:OracleExtensions>
-                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada" element="CartillaSaludEmbarazada" isArray="false"/>
+                        <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" element="CartillaSaludEmbarazada" isArray="false"/>
                     </ns2:OracleExtensions>
                 </extensionElements>
             </dataOutput>
@@ -96,7 +96,7 @@
             <dataInput name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
                 <extensionElements>
                     <ns2:OracleExtensions>
-                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada" element="CartillaSaludEmbarazada" isArray="false"/>
+                        <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" element="CartillaSaludEmbarazada" isArray="false"/>
                     </ns2:OracleExtensions>
                 </extensionElements>
             </dataInput>

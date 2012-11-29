@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <definitions fileRevision="20110706" version="11.1.1.6.0.15.53" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns2="http://xmlns.oracle.com/bpm/OracleExtensions" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:ns4="http://www.omg.org/spec/DD/20100524/DC" xmlns:ns3="http://www.omg.org/spec/DD/20100524/DI" xmlns:ns5="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <process isExecutable="true" processType="Public" name="EmbarazoNormal" id="EmbarazoNormal">
+    <process processType="Public" isExecutable="true" name="EmbarazoNormal" id="EmbarazoNormal">
         <extensionElements>
             <ns2:OracleExtensions>
                 <ns2:FeatureSet>
@@ -19,13 +19,13 @@
                     <ns2:StringFeature value="REGULAR" name="sealType"/>
                 </ns2:FeatureSet>
                 <ns2:Conversations>
-                    <ns2:Conversation type="define_interface" id="CONVERSATION52365209094">
+                    <ns2:Conversation id="CONVERSATION52365209094" type="define_interface">
                         <ns2:DefineInterfaceConversationDefinition exposeSOAPService="true"/>
                     </ns2:Conversation>
-                    <ns2:Conversation type="process_call" id="CONVERSATION52371649955">
+                    <ns2:Conversation id="CONVERSATION52371649955" type="process_call">
                         <ns2:ProcessCallConversationDefinition process="Captacion"/>
                     </ns2:Conversation>
-                    <ns2:Conversation type="process_call" id="CONVERSATION52373550188">
+                    <ns2:Conversation id="CONVERSATION52373550188" type="process_call">
                         <ns2:ProcessCallConversationDefinition process="PrimeraConsultaAP"/>
                     </ns2:Conversation>
                 </ns2:Conversations>
@@ -36,8 +36,8 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes backgroundColor="-1761607681">
-                            <ns2:Position y="0" x="0"/>
-                            <ns2:Size height="0" width="280"/>
+                            <ns2:Position x="0" y="0"/>
+                            <ns2:Size width="280" height="0"/>
                         </ns2:GraphicsAttributes>
                         <ns2:LaneAttributes roleId="AutomaticHandler"/>
                         <ns2:FeatureSet/>
@@ -49,8 +49,8 @@
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:GraphicsAttributes>
-                        <ns2:Position y="140" x="365"/>
-                        <ns2:Size height="200" width="390"/>
+                        <ns2:Position x="365" y="140"/>
+                        <ns2:Size width="390" height="200"/>
                     </ns2:GraphicsAttributes>
                     <ns2:FeatureSet>
                         <ns2:BooleanFeature value="true" name="collapsed"/>
@@ -69,7 +69,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="140"/>
+                            <ns2:Position x="140" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="isDraft"/>
@@ -88,7 +88,7 @@
                     <dataInput name="captacionIN" id="captacionIN">
                         <extensionElements>
                             <ns2:OracleExtensions>
-                                <ns2:TypeRef isArray="false" element="DatosDemograficos" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos"/>
+                                <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" type="DatosDemograficosType" isArray="false"/>
                             </ns2:OracleExtensions>
                         </extensionElements>
                     </dataInput>
@@ -129,7 +129,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="240"/>
+                            <ns2:Position x="240" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="isDraft"/>
@@ -148,7 +148,7 @@
                     <dataOutput name="captacionOUT" id="captacionOUT">
                         <extensionElements>
                             <ns2:OracleExtensions>
-                                <ns2:TypeRef isArray="false" element="DatosDemograficos" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos"/>
+                                <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" type="DatosDemograficosType" isArray="false"/>
                             </ns2:OracleExtensions>
                         </extensionElements>
                     </dataOutput>
@@ -189,7 +189,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="40"/>
+                            <ns2:Position x="40" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="isDraft"/>
@@ -206,7 +206,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="340"/>
+                            <ns2:Position x="340" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="inputValidation"/>
@@ -219,7 +219,7 @@
                 </extensionElements>
                 <inputSet/>
             </endEvent>
-            <sequenceFlow targetRef="ABSTRACT_ACTIVITY5237164091883" sourceRef="START_EVENT5237004393558" name="sf49" id="sf49">
+            <sequenceFlow sourceRef="START_EVENT5237004393558" targetRef="ABSTRACT_ACTIVITY5237164091883" name="sf49" id="sf49">
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:SequenceFlowAttributes/>
@@ -231,7 +231,7 @@
                     </ns2:OracleExtensions>
                 </extensionElements>
             </sequenceFlow>
-            <sequenceFlow targetRef="ABSTRACT_ACTIVITY5237166494258" sourceRef="ABSTRACT_ACTIVITY5237164091883" name="sf51" id="sf51">
+            <sequenceFlow sourceRef="ABSTRACT_ACTIVITY5237164091883" targetRef="ABSTRACT_ACTIVITY5237166494258" name="sf51" id="sf51">
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:SequenceFlowAttributes/>
@@ -243,7 +243,7 @@
                     </ns2:OracleExtensions>
                 </extensionElements>
             </sequenceFlow>
-            <sequenceFlow targetRef="END_EVENT5237004393645" sourceRef="ABSTRACT_ACTIVITY5237166494258" name="sf52" id="sf52">
+            <sequenceFlow sourceRef="ABSTRACT_ACTIVITY5237166494258" targetRef="END_EVENT5237004393645" name="sf52" id="sf52">
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:SequenceFlowAttributes/>
@@ -260,8 +260,8 @@
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:GraphicsAttributes>
-                        <ns2:Position y="140" x="775"/>
-                        <ns2:Size height="200" width="390"/>
+                        <ns2:Position x="775" y="140"/>
+                        <ns2:Size width="390" height="200"/>
                     </ns2:GraphicsAttributes>
                     <ns2:FeatureSet>
                         <ns2:BooleanFeature value="true" name="collapsed"/>
@@ -280,7 +280,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="140"/>
+                            <ns2:Position x="140" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="isDraft"/>
@@ -299,7 +299,7 @@
                     <dataInput name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
                         <extensionElements>
                             <ns2:OracleExtensions>
-                                <ns2:TypeRef isArray="false" element="CartillaSaludEmbarazada" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada"/>
+                                <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" element="CartillaSaludEmbarazada" isArray="false"/>
                             </ns2:OracleExtensions>
                         </extensionElements>
                     </dataInput>
@@ -340,7 +340,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="240"/>
+                            <ns2:Position x="240" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="isDraft"/>
@@ -359,7 +359,7 @@
                     <dataOutput name="cartillaSaludEmbarazada" id="cartillaSaludEmbarazada">
                         <extensionElements>
                             <ns2:OracleExtensions>
-                                <ns2:TypeRef isArray="false" element="CartillaSaludEmbarazada" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada"/>
+                                <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" element="CartillaSaludEmbarazada" isArray="false"/>
                             </ns2:OracleExtensions>
                         </extensionElements>
                     </dataOutput>
@@ -400,7 +400,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="40"/>
+                            <ns2:Position x="40" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="isDraft"/>
@@ -417,7 +417,7 @@
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:GraphicsAttributes>
-                            <ns2:Position y="100" x="340"/>
+                            <ns2:Position x="340" y="100"/>
                         </ns2:GraphicsAttributes>
                         <ns2:FeatureSet>
                             <ns2:BooleanFeature value="false" name="inputValidation"/>
@@ -430,7 +430,7 @@
                 </extensionElements>
                 <inputSet/>
             </endEvent>
-            <sequenceFlow targetRef="ABSTRACT_ACTIVITY523735419746" sourceRef="START_EVENT5237343583681" name="sf62" id="sf62">
+            <sequenceFlow sourceRef="START_EVENT5237343583681" targetRef="ABSTRACT_ACTIVITY523735419746" name="sf62" id="sf62">
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:SequenceFlowAttributes/>
@@ -442,7 +442,7 @@
                     </ns2:OracleExtensions>
                 </extensionElements>
             </sequenceFlow>
-            <sequenceFlow targetRef="ABSTRACT_ACTIVITY5237357984126" sourceRef="ABSTRACT_ACTIVITY523735419746" name="sf64" id="sf64">
+            <sequenceFlow sourceRef="ABSTRACT_ACTIVITY523735419746" targetRef="ABSTRACT_ACTIVITY5237357984126" name="sf64" id="sf64">
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:SequenceFlowAttributes/>
@@ -454,7 +454,7 @@
                     </ns2:OracleExtensions>
                 </extensionElements>
             </sequenceFlow>
-            <sequenceFlow targetRef="END_EVENT5237343583685" sourceRef="ABSTRACT_ACTIVITY5237357984126" name="sf65" id="sf65">
+            <sequenceFlow sourceRef="ABSTRACT_ACTIVITY5237357984126" targetRef="END_EVENT5237343583685" name="sf65" id="sf65">
                 <extensionElements>
                     <ns2:OracleExtensions>
                         <ns2:SequenceFlowAttributes/>
@@ -471,7 +471,7 @@
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:GraphicsAttributes>
-                        <ns2:Position y="140" x="100"/>
+                        <ns2:Position x="100" y="140"/>
                     </ns2:GraphicsAttributes>
                     <ns2:FeatureSet>
                         <ns2:BooleanFeature value="false" name="catchAllErrors"/>
@@ -491,7 +491,7 @@
             <dataOutput name="cip" id="cip">
                 <extensionElements>
                     <ns2:OracleExtensions>
-                        <ns2:TypeRef isArray="false" type="string" namespace="http://www.w3.org/2001/XMLSchema"/>
+                        <ns2:TypeRef namespace="http://www.w3.org/2001/XMLSchema" type="string" isArray="false"/>
                     </ns2:OracleExtensions>
                 </extensionElements>
             </dataOutput>
@@ -532,7 +532,7 @@
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:GraphicsAttributes>
-                        <ns2:Position y="140" x="1040"/>
+                        <ns2:Position x="1040" y="140"/>
                     </ns2:GraphicsAttributes>
                     <ns2:FeatureSet>
                         <ns2:BooleanFeature value="false" name="catchAllErrors"/>
@@ -552,7 +552,7 @@
             <inputSet/>
             <messageEventDefinition/>
         </endEvent>
-        <sequenceFlow targetRef="SUBPROCESS5237004040257" sourceRef="START_EVENT5236520909477" name="sf12" id="sf12">
+        <sequenceFlow sourceRef="START_EVENT5236520909477" targetRef="SUBPROCESS5237004040257" name="sf12" id="sf12">
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:SequenceFlowAttributes/>
@@ -564,7 +564,7 @@
                 </ns2:OracleExtensions>
             </extensionElements>
         </sequenceFlow>
-        <sequenceFlow targetRef="SUBPROCESS5237343436633" sourceRef="SUBPROCESS5237004040257" name="sf50" id="sf50">
+        <sequenceFlow sourceRef="SUBPROCESS5237004040257" targetRef="SUBPROCESS5237343436633" name="sf50" id="sf50">
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:SequenceFlowAttributes/>
@@ -576,7 +576,7 @@
                 </ns2:OracleExtensions>
             </extensionElements>
         </sequenceFlow>
-        <sequenceFlow targetRef="END_EVENT5236520909432" sourceRef="SUBPROCESS5237343436633" name="sf63" id="sf63">
+        <sequenceFlow sourceRef="SUBPROCESS5237343436633" targetRef="END_EVENT5236520909432" name="sf63" id="sf63">
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:SequenceFlowAttributes/>
@@ -592,7 +592,7 @@
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:DataObjectType initialize="true">
-                        <ns2:TypeRef isArray="false" element="CartillaSaludEmbarazada" namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/CartillaSaludEmbarazada"/>
+                        <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" element="CartillaSaludEmbarazada" isArray="false"/>
                     </ns2:DataObjectType>
                 </ns2:OracleExtensions>
             </extensionElements>

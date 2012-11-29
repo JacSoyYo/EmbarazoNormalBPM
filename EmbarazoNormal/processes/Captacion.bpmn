@@ -326,7 +326,6 @@
                         <ns2:StringFeature value="USE_PROCESS_PERMISSION" name="sealType"/>
                         <ns2:StringFeature value="REUSE_PAYLOAD" name="reinitiatorPolicy"/>
                         <ns2:StringFeature value="SIMPLE" name="humanTaskType"/>
-                        <ns2:StringFeature value="" name="reinitiateSource"/>
                     </ns2:FeatureSet>
                     <ns2:HumanTask humanTaskReference="HumanTasks.ConfirmarDatosDemograficos"/>
                     <ns2:LogHandlers/>
@@ -336,7 +335,7 @@
                 <dataInput name="datosDemograficos" id="datosDemograficos">
                     <extensionElements>
                         <ns2:OracleExtensions>
-                            <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                            <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" type="DatosDemograficosType" isArray="false"/>
                         </ns2:OracleExtensions>
                     </extensionElements>
                 </dataInput>
@@ -424,7 +423,7 @@
             <dataOutput name="captacionIN" id="captacionIN">
                 <extensionElements>
                     <ns2:OracleExtensions>
-                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                        <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" type="DatosDemograficosType" isArray="false"/>
                     </ns2:OracleExtensions>
                 </extensionElements>
             </dataOutput>
@@ -485,7 +484,7 @@
             <dataInput name="captacionOUT" id="captacionOUT">
                 <extensionElements>
                     <ns2:OracleExtensions>
-                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                        <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" type="DatosDemograficosType" isArray="false"/>
                     </ns2:OracleExtensions>
                 </extensionElements>
             </dataInput>
@@ -564,7 +563,7 @@
             <extensionElements>
                 <ns2:OracleExtensions>
                     <ns2:DataObjectType initialize="true">
-                        <ns2:TypeRef namespace="http://xmlns.oracle.com/bpm/bpmobject/Sacyl/Embarazo/DatosDemograficos" element="DatosDemograficos" isArray="false"/>
+                        <ns2:TypeRef namespace="http://xmlns.sacyl.es/bpmn/pca/embarazo" type="DatosDemograficosType" isArray="false"/>
                     </ns2:DataObjectType>
                 </ns2:OracleExtensions>
             </extensionElements>
